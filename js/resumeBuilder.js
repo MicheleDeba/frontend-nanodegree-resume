@@ -55,6 +55,102 @@ $("#header").append(HTMLskillsStart);
 	}
 };
 
+var work = {
+	"jobs" : [
+		{
+			"employer" : "Solidred",
+			"title" : "Freelance Graphic Designer",
+			"location" : "Worldwide",
+			"dates" : "2008 - current",
+			"description" : "Lorem ipsum"
+		},
+		{
+			"employer" : "Digimade",
+			"title" : "Web Designer",
+			"location" : "Padova - IT",
+			"dates" : "2014 - current",
+			"description" : "Lorem ipsum"
+		}
+	]
+};
 
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
+
+	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	$(".work-entry:last").append(formattedLocation);
+
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDescription);
+};
+
+
+
+
+//var education = {
+//	"schools" : [
+//		{
+//			"name" : "UNIPD - International economics",
+//			"location" : "Padova - IT",
+//			"degree" : "Degree",
+//			"date" : 2010,
+//			"major" : ["International economics", "Statistics"]
+//		},
+//		{
+//			"name" : "UNIPD - International economics",
+//			"location" : "Padova - IT",
+//			"degree" : "Master Degree",
+//			"date" : 2013,
+//			"major" : ["Ebusiness", "Innovation Management", "Marketing"]
+//		}
+//	],
+//
+//	"OnlineCourses" : [
+//		{
+//			"title" : "Design of Artifacts in Society",
+//			"school" : "Coursera",
+//			"date" : 2014,
+//			"url" : "https://www.coursera.org/"
+//		},
+//		{
+//			"title" : "Front End devoloper Nanodegree",
+//			"school" : "Coursera",
+//			"date" : 2015,
+//			"url" : "https://www.udacity.org/"
+//		}
+//	]
+//};
+//
+//var projects = {
+//	"projects" : [
+//		{
+//			"title" : "Oxydo",
+//			"date" : "2015",
+//			"description" : "Website for italian brand of glasses",
+//			"images" : [
+//				"/images/project01_1.png",
+//				"/images/project01_2.png"
+//			]
+//		},
+//		{
+//			"title" : "Solidred",
+//			"date" : "2015",
+//			"description" : "Design agency website",
+//			"images" : [
+//				"/images/project01_1.png",
+//				"/images/project01_2.png"
+//			]
+//		}
+//	]
+//}
 
 
