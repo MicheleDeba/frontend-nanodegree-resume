@@ -74,83 +74,151 @@ var work = {
 	]
 };
 
+function displayWork() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
 
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		$(".work-entry:last").append(formattedEmployerTitle);
 
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-	$(".work-entry:last").append(formattedEmployerTitle);
+		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
 
-	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-	$(".work-entry:last").append(formattedLocation);
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$(".work-entry:last").append(formattedDates);
 
-	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	$(".work-entry:last").append(formattedDates);
+		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedDescription);
+	};
+}
 
-	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	$(".work-entry:last").append(formattedDescription);
+displayWork();
+
+var projects = {
+	"projects" : [
+		{
+			"title" : "Oxydo",
+			"dates" : "2015",
+			"description" : "Website for italian brand of glasses",
+			"images" : [
+				"images/project01_1.jpg",
+				"images/project01_2.jpg"
+			]
+		},
+		{
+			"title" : "Solidred",
+			"dates" : "2015",
+			"description" : "Design agency website",
+			"images" : [
+				"images/project01_1.jpg",
+				"images/project01_2.jpg"
+			]
+		}
+	]
 };
 
 
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
 
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
 
-//var education = {
-//	"schools" : [
-//		{
-//			"name" : "UNIPD - International economics",
-//			"location" : "Padova - IT",
-//			"degree" : "Degree",
-//			"date" : 2010,
-//			"major" : ["International economics", "Statistics"]
-//		},
-//		{
-//			"name" : "UNIPD - International economics",
-//			"location" : "Padova - IT",
-//			"degree" : "Master Degree",
-//			"date" : 2013,
-//			"major" : ["Ebusiness", "Innovation Management", "Marketing"]
-//		}
-//	],
-//
-//	"OnlineCourses" : [
-//		{
-//			"title" : "Design of Artifacts in Society",
-//			"school" : "Coursera",
-//			"date" : 2014,
-//			"url" : "https://www.coursera.org/"
-//		},
-//		{
-//			"title" : "Front End devoloper Nanodegree",
-//			"school" : "Coursera",
-//			"date" : 2015,
-//			"url" : "https://www.udacity.org/"
-//		}
-//	]
-//};
-//
-//var projects = {
-//	"projects" : [
-//		{
-//			"title" : "Oxydo",
-//			"date" : "2015",
-//			"description" : "Website for italian brand of glasses",
-//			"images" : [
-//				"/images/project01_1.png",
-//				"/images/project01_2.png"
-//			]
-//		},
-//		{
-//			"title" : "Solidred",
-//			"date" : "2015",
-//			"description" : "Design agency website",
-//			"images" : [
-//				"/images/project01_1.png",
-//				"/images/project01_2.png"
-//			]
-//		}
-//	]
-//}
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
 
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
 
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+}
+
+projects.display();
+
+var education = {
+	"schools" : [
+		{
+			"name" : "UNIPD - International economics",
+			"location" : "Padova - IT",
+			"degree" : "Degree",
+			"dates" : 2010,
+			"major" : "International economics"
+		},
+		{
+			"name" : "UNIPD - International economics",
+			"location" : "Padova - IT",
+			"degree" : "Master Degree",
+			"dates" : 2013,
+			"major" : "Management of Innovation"
+		}
+	],
+
+	"onlineCourses" : [
+		{
+			"title" : "Design of Artifacts in Society",
+			"school" : "Coursera",
+			"dates" : 2014,
+			"url" : "https://www.coursera.org/"
+		},
+		{
+			"title" : "Front End devoloper Nanodegree",
+			"school" : "Coursera",
+			"dates" : 2015,
+			"url" : "https://www.udacity.org/"
+		}
+	]
+};
+
+education.display = function() {
+	for (var school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		//$(".education-entry:last").append(formattedName);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		//$(".education-entry:last").append(formattedDegree);
+
+		var schoolTitle = formattedName + formattedDegree;
+		$(".education-entry:last").append(schoolTitle);
+
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		$(".education-entry:last").append(formattedMajor);
+
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$(".education-entry:last").append(formattedDates);
+	};
+
+	$('#education').append(HTMLonlineClasses);
+
+	for (var school in education.onlineCourses) {
+		$("#education").append(HTMLschoolStart);
+		var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[school].title);
+		//$(".education-entry:last").append(formattedTitle);
+		var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[school].school);
+		//$(".education-entry:last").append(formattedSchool);
+
+		var schoolTitle = formattedTitle + formattedSchool;
+		$(".education-entry:last").append(schoolTitle);
+
+		var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[school].dates);
+		$(".education-entry:last").append(formattedDates);
+
+		var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[school].url);
+		$(".education-entry:last").append(formattedURL);
+	}
+};
+
+education.display();
+
+$('#mapDiv').append(googleMap);

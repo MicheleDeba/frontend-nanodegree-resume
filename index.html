@@ -113,7 +113,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
 
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.backgroundColor = '#000';
+      document.getElementById('topContacts').style.display = 'none';
     }
     if(document.getElementsByTagName('h1').length === 0) {
       document.getElementById('header').style.backgroundColor = '#000';
@@ -122,7 +122,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('workExperience').style.display = 'none';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects').style.backgroundColor = '#000';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.backgroundColor = '#000';
