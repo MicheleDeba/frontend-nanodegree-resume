@@ -40,7 +40,7 @@ h1 {
 	line-height: 48px;
 	display: inline;
 	text-transform: uppercase;
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 h2 {
@@ -78,16 +78,16 @@ h5 {
 }
 
 .date-text {
-    font-style: italic;
-    font-size: 14px;
-    clear: left;
-    color: #fff;
-    line-height: 16px;
-    padding: 5px;
-    margin-top: 5px;
-    width: 50px;
-    text-align: center;
-    background-color: #000;
+	font-style: italic;
+	font-size: 14px;
+	clear: left;
+	color: #fff;
+	line-height: 16px;
+	padding: 5px;
+	margin-top: 5px;
+	width: 50px;
+	text-align: center;
+	background-color: #000;
 }
 
 .location-text {
